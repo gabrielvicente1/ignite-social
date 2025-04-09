@@ -1,44 +1,78 @@
-import styles from './Post.module.css'
+import { format, formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+import { useState} from 'react'
 
-export function Post() {
-    return (
-        <article className={styles.post}>
-            <header>
-                <div className={styles.author}>
-                    <img className={styles.avatar} src="https://github.com/gabrielvicente1.png" />
-                    <div className={styles.authorInfo}>
-                        <strong>Gabriel Vicente</strong>
-                        <span>Web Developer</span>
-                    </div>
-                </div>
+import { Avatar } from './Avatar';
+import { Comment } from './Comment';
 
-                <time title='11 de abril ás 12:19' dateTime='2025-04-08 12:19:00'>Publicado há 1h</time>
-            </header>
+import styles from './Post.module.css';
 
-            <div className={styles.content}>
-                <p>Fala galeraa 👋</p>
 
-                <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
+export function Post({ author, publishedAt, content }) {
+    const [comments, setComments] = useState([
+        1,
+        2,
+    ])
 
-                <p><a href="">jane.design/doctorcare</a></p>
+  const publishedDateFormatted = format(
+    new Date(publishedAt),
+    "d 'de' MMMM 'de' yyyy 'às' HH:mm",
+    { locale: ptBR }
+  );
 
-                <p> <a href="">#novoprojeto</a>{''}
-                    <a href="">#nlw</a>{''}
-                    <a href="">#rocketseat</a>
-                </p>
-            </div>
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  })
 
-            <form className={styles.commentForm}>
-                <strong>Deixe seu feedback</strong>
+  function handleCreateNewComment() {
+    event.preventDefault
 
-                <textarea
-                placeholder='Deixe um comentário'/>
-                
-                <footer>
-                <button type='submit'>Comentar</button>
-                </footer>
-                
-            </form>
-        </article>
-    )
+    setComments([1, 2, 3]);
+  }
+
+
+  return (
+    <article className={styles.post}>
+      <header>
+        <div className={styles.author}>
+          <Avatar src={author.avatarUrl} />
+          <div className={styles.authorInfo}>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
+          </div>
+        </div>
+
+        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString}>
+          {publishedDateRelativeToNow}
+        </time>
+      </header>
+
+      <div className={styles.content}>
+        {content.map(line => {
+            if(line.type === 'paragraph') {
+                return <p>{line.content}</p>
+            } else if(line.type === 'link') {
+                return <p><a href="">{line.content}</a></p>
+            }
+        })}
+      </div>
+
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
+        <strong>Deixe seu feedback</strong>
+
+        <textarea placeholder='Deixe um comentário' />
+
+        <footer>
+          <button type='submit'>Comentar</button>
+        </footer>
+      </form>
+
+      <div className={styles.commentList}>
+        {comments.map(comment => {
+            return <Comment />
+        })}
+      </div>
+    </article>
+  );
 }

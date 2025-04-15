@@ -1,12 +1,22 @@
-# React + Vite
+# Ignite Social
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Ignite Social** é uma aplicação web que simula um feed de rede social, permitindo que os usuários visualizem publicações, interajam com elas e adicionem comentários.  
+Este projeto foi desenvolvido durante a trilha de ReactJS do programa Ignite da Rocketseat, com o objetivo de praticar conceitos fundamentais do React.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-## Expanding the ESLint configuration
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [CSS Modules](https://github.com/css-modules/css-modules)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Como executar
+
+Para executar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/gabrielvicente1/ignite-social.git

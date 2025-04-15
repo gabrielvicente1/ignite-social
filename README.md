@@ -20,3 +20,32 @@ Para executar o projeto localmente, siga os passos abaixo:
 
 ```bash
 git clone https://github.com/gabrielvicente1/ignite-social.git
+
+```
+
+2. Acesse o diretório do projeto:
+
+```bash
+cd ignite-social
+
+```
+
+3. Instale as dependências:
+
+```bash
+npm i
+
+```
+4. Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+
+```
+
+5. Abra o navegador e acesse:
+
+```arduino 
+http://localhost:5173
+
+```
